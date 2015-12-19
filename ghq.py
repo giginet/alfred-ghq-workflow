@@ -50,7 +50,7 @@ def main(wf):
             else:
                 query = args[0]
                 repositories = client.fetch_repository_list()
-                filtered = filter(lambda name: query in name, repositories)
+                filtered = wf.filter(query, repositories)
                 for repository in filtered:
                     path = client.get_path(repository)
                     wf.add_item(repository, path, arg=path, valid=True, icon=ICON_WEB)
