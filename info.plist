@@ -58,7 +58,8 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>script</key>
-				<string>python ghq.py "{query}"</string>
+				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
+python ghq.py "{query}"</string>
 				<key>title</key>
 				<string>Alfred GHQ Workflow</string>
 				<key>type</key>
