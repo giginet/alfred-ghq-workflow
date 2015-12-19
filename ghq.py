@@ -5,8 +5,8 @@ import os
 import sys
 import subprocess
 
-from workflow import Workflow
-
+from workflow import Workflow, ICON_CLOCK, ICON_HELP, ICON_WEB
+from workflow.background import run_in_background, is_running
 
 class Client(object):
     def _execute_ghq(self, *args):
@@ -33,23 +33,27 @@ class Client(object):
         return os.path.join(self.root, repo_name)
 
 def main(wf):
-    args = wf.args
+    args = wf.args[0].split(' ')
     client = Client()
 
     if client.is_available():
         if len(args) == 0:
             pass
         else:
-            command = args[0]
+            command = args[0] 
             if command == 'get':
-                pass
+                if len(args) == 2:
+                    repo = args[1]
+                    wf.add_item('ghq get %s' % repo, icon=ICON_WEB)
+                else:
+                    wf.add_item('ghq get <Repository URL>', icon=ICON_HELP)
             else:
                 query = args[0]
                 repositories = client.fetch_repository_list()
                 filtered = filter(lambda name: query in name, repositories)
                 for repository in filtered:
                     path = client.get_path(repository)
-                    wf.add_item(repository, path, arg=path, valid=True)
+                    wf.add_item(repository, path, arg=path, valid=True, icon=ICON_WEB)
     else:
         wf.add_item(u'ghq is not available', u'')
 
