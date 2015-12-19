@@ -5,7 +5,7 @@ import os
 import sys
 import subprocess
 
-from workflow import Workflow, ICON_CLOCK, ICON_HELP, ICON_WEB
+from workflow import Workflow, ICON_HELP
 from workflow.background import run_in_background, is_running
 
 class Client(object):
@@ -47,7 +47,11 @@ def main_search(wf):
                 filtered = wf.filter(query, repositories)
                 for repository in filtered:
                     path = client.get_path(repository)
-                    wf.add_item(repository, path, arg=path, valid=True, icon=ICON_WEB)
+                    wf.add_item(repository, 
+                            path, 
+                            arg=path, 
+                            valid=True, 
+                            icon='octocat.png')
     else:
         wf.add_item(u'ghq is not available', u'')
     wf.send_feedback()
@@ -57,9 +61,10 @@ def main_get(wf):
     client = Client()
     if len(args) == 1:
         repo = args[0]
-        wf.add_item('ghq get %s' % repo, 
+        wf.add_item('Get %s' % repo,
+                'ghq get %s' % repo,
                 arg=repo, 
-                icon=ICON_WEB, 
+                icon='octocat.png', 
                 valid=True)
     else:
         wf.add_item('ghq get <Repository URL>', icon=ICON_HELP)

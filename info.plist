@@ -93,8 +93,7 @@ python ghq.py "{query}"</string>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
-ghq get {query} &amp;&amp; exit</string>
+				<string>ghq get {query} &amp;&amp; exit</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.terminalcommand</string>
@@ -123,8 +122,10 @@ ghq get {query} &amp;&amp; exit</string>
 				<key>script</key>
 				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
 python ghq.py --get "{query}"</string>
+				<key>subtext</key>
+				<string>ghq get '...'</string>
 				<key>title</key>
-				<string>ghq get &lt;repository_url&gt;</string>
+				<string>Get repository via ghq</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
