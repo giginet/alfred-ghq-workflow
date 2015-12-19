@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>469ADBFA-EB8C-4C2C-BCD3-21A7A30AC52C</string>
+				<string>FBE824A7-BD42-4F29-ABE6-388B88E857FB</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -31,14 +31,12 @@
 	<key>objects</key>
 	<array>
 		<dict>
-			<key>config</key>
-			<dict/>
 			<key>type</key>
-			<string>alfred.workflow.action.openfile</string>
+			<string>alfred.workflow.action.revealfile</string>
 			<key>uid</key>
-			<string>469ADBFA-EB8C-4C2C-BCD3-21A7A30AC52C</string>
+			<string>FBE824A7-BD42-4F29-ABE6-388B88E857FB</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -84,7 +82,7 @@ python ghq.py "{query}"</string>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
-		<key>469ADBFA-EB8C-4C2C-BCD3-21A7A30AC52C</key>
+		<key>FBE824A7-BD42-4F29-ABE6-388B88E857FB</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
