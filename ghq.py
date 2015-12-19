@@ -6,7 +6,6 @@ import sys
 import subprocess
 
 from workflow import Workflow, ICON_HELP
-from workflow.background import run_in_background, is_running
 
 class Client(object):
     def _execute_ghq(self, *args):
