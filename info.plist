@@ -8,17 +8,30 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>439EDFE7-D0D2-4AAC-8C65-5280EF701B7E</key>
+		<key>1B1BF1B2-C21C-4CE3-BA21-9148885812B9</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>FBE824A7-BD42-4F29-ABE6-388B88E857FB</string>
+				<string>D167BA90-E3A3-4882-838A-299E63CCE296</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
 		</array>
+		<key>439EDFE7-D0D2-4AAC-8C65-5280EF701B7E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3A6D55EB-FC52-4FFE-96BF-4469B8A20EEE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>D167BA90-E3A3-4882-838A-299E63CCE296</key>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>giginet</string>
@@ -30,14 +43,6 @@
 	<string>GHQ Alfred Workflow</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>type</key>
-			<string>alfred.workflow.action.revealfile</string>
-			<key>uid</key>
-			<string>FBE824A7-BD42-4F29-ABE6-388B88E857FB</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -59,7 +64,7 @@
 				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
 python ghq.py "{query}"</string>
 				<key>title</key>
-				<string>Alfred GHQ Workflow</string>
+				<string>Open repository via ghq</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -72,20 +77,90 @@ python ghq.py "{query}"</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict/>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>3A6D55EB-FC52-4FFE-96BF-4469B8A20EEE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
+ghq get {query} &amp;&amp; exit</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.terminalcommand</string>
+			<key>uid</key>
+			<string>D167BA90-E3A3-4882-838A-299E63CCE296</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>103</integer>
+				<key>keyword</key>
+				<string>ghq get</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
+python ghq.py --get "{query}"</string>
+				<key>title</key>
+				<string>ghq get &lt;repository_url&gt;</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>1B1BF1B2-C21C-4CE3-BA21-9148885812B9</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>1B1BF1B2-C21C-4CE3-BA21-9148885812B9</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>3A6D55EB-FC52-4FFE-96BF-4469B8A20EEE</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
 		<key>439EDFE7-D0D2-4AAC-8C65-5280EF701B7E</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
-		<key>FBE824A7-BD42-4F29-ABE6-388B88E857FB</key>
+		<key>D167BA90-E3A3-4882-838A-299E63CCE296</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>150</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

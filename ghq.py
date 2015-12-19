@@ -32,7 +32,7 @@ class Client(object):
     def get_path(self, repo_name):
         return os.path.join(self.root, repo_name)
 
-def main(wf):
+def main_search(wf):
     args = wf.args[0].split(' ')
     client = Client()
 
@@ -41,13 +41,7 @@ def main(wf):
             pass
         else:
             command = args[0] 
-            if command == 'get':
-                if len(args) == 2:
-                    repo = args[1]
-                    wf.add_item('ghq get %s' % repo, icon=ICON_WEB)
-                else:
-                    wf.add_item('ghq get <Repository URL>', icon=ICON_HELP)
-            else:
+            if command != 'get':
                 query = args[0]
                 repositories = client.fetch_repository_list()
                 filtered = wf.filter(query, repositories)
@@ -56,13 +50,27 @@ def main(wf):
                     wf.add_item(repository, path, arg=path, valid=True, icon=ICON_WEB)
     else:
         wf.add_item(u'ghq is not available', u'')
-
     wf.send_feedback()
 
+def main_get(wf):
+    args = wf.args[1].split(' ')
+    client = Client()
+    if len(args) == 1:
+        repo = args[0]
+        wf.add_item('ghq get %s' % repo, 
+                arg=repo, 
+                icon=ICON_WEB, 
+                valid=True)
+    else:
+        wf.add_item('ghq get <Repository URL>', icon=ICON_HELP)
+    wf.send_feedback()
 
 if __name__ == '__main__':
     wf = Workflow(update_settings={
         'github_slug': 'giginet/alfred-ghq-workflow',
         'version': open(os.path.join(os.path.dirname(__file__), 'version')).read(),
     })
-    sys.exit(wf.run(main))
+    argv = sys.argv
+    if len(argv) >= 2 and argv[1] == '--get':
+        sys.exit(wf.run(main_get))
+    sys.exit(wf.run(main_search))
