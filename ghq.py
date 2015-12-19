@@ -10,7 +10,7 @@ from workflow import Workflow
 
 class Client(object):
     def _execute_ghq(self, *args):
-        args = ['/opt/brew/bin/ghq',] + list(args)
+        args = ['ghq',] + list(args)
         return commands.getstatusoutput(' '.join(args))
 
     def is_available(self):
@@ -33,7 +33,6 @@ class Client(object):
         return os.path.join(self.root, repo_name)
 
 def main(wf):
-    # Get args from Workflow, already in normalised Unicode
     args = wf.args
     client = Client()
 
@@ -58,5 +57,8 @@ def main(wf):
 
 
 if __name__ == '__main__':
-    wf = Workflow()
+    wf = Workflow(update_settings={
+        'github_slug': 'giginet/alfred-ghq-workflow',
+        'version': open(os.path.join(os.path.dirname(__file__), 'version')).read(),
+    })
     sys.exit(wf.run(main))
