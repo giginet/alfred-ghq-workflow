@@ -50,7 +50,7 @@ def main_search(wf):
                             path, 
                             arg=path, 
                             valid=True, 
-                            icon='octocat.png')
+                            icon='icon.png')
     else:
         wf.add_item(u'ghq is not available', u'')
     wf.send_feedback()
@@ -63,7 +63,7 @@ def main_get(wf):
         wf.add_item('Get %s' % repo,
                 'ghq get %s' % repo,
                 arg=repo, 
-                icon='octocat.png', 
+                icon='icon.png', 
                 valid=True)
     else:
         wf.add_item('ghq get <Repository URL>', icon=ICON_HELP)

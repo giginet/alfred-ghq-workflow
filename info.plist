@@ -36,7 +36,7 @@
 	<key>createdby</key>
 	<string>giginet</string>
 	<key>description</key>
-	<string></string>
+	<string>Search and get repository on GHQ via Alfred</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -165,6 +165,6 @@ python ghq.py --get "{query}"</string>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/giginet/alfred-ghq-workflow</string>
 </dict>
 </plist>
