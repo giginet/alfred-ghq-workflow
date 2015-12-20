@@ -8,8 +8,10 @@ import subprocess
 from workflow import Workflow, ICON_HELP
 
 class Client(object):
+    BASE_COMMAND = 'ghq'
+
     def _execute_ghq(self, *args):
-        args = ['ghq',] + list(args)
+        args = [self.BASE_COMMAND,] + list(args)
         return subprocess.Popen(args, stdout=subprocess.PIPE).communicate()
 
     def is_available(self):
@@ -36,23 +38,22 @@ def main_search(wf):
     client = Client()
 
     if client.is_available():
-        if len(args) == 0:
-            pass
-        else:
+        if len(args) >= 0:
             command = args[0] 
-            if command != 'get':
-                query = args[0]
-                repositories = client.fetch_repository_list()
-                filtered = wf.filter(query, repositories)
-                for repository in filtered:
-                    path = client.get_path(repository)
-                    wf.add_item(repository, 
-                            path, 
-                            arg=path, 
-                            valid=True, 
-                            icon='icon.png')
+            if command == 'get':
+                return
+            query = args[0]
+            repositories = client.fetch_repository_list()
+            filtered = wf.filter(query, repositories)
+            for repository in filtered:
+                path = client.get_path(repository)
+                wf.add_item(repository, 
+                        path, 
+                        arg=path, 
+                        valid=True, 
+                        icon='icon.png')
     else:
-        wf.add_item(u'ghq is not available', u'')
+        wf.add_item('ghq is not available', 'You have to install ghq via Homebrew')
     wf.send_feedback()
 
 def main_get(wf):
