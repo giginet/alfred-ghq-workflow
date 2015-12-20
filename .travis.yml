@@ -1,0 +1,6 @@
+language: python
+sudo: false
+install:
+  - pip install -r requirements-test.txt
+script:
+  - ./runtest.sh
