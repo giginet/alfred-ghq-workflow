@@ -9,6 +9,8 @@ https://github.com/motemen/ghq
 1. Purchase [Alfred Powerpack](https://www.alfredapp.com/powerpack/)
 2. Download latest [release](https://github.com/giginet/alfred-ghq-workflow/releases)
 3. Click to install
+4. Install ghq
+    - Recommended ghq version is 0.7.2+
 
 ## Usage
 
@@ -17,6 +19,8 @@ https://github.com/motemen/ghq
 ```
 ghq {query}
 ```
+
+![](https://gyazo.com/39ef08e69906bc78b0b611efa09eab55.gif)
 
 ### Get repository
 
