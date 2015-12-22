@@ -15,7 +15,7 @@ class Client(object):
         try:
             return subprocess.Popen(args, stdout=subprocess.PIPE).communicate()
         except:
-            return -1, ''
+            return '', -1
 
     def is_available(self):
         output, err = self._execute_ghq()
