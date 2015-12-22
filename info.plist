@@ -61,7 +61,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>script</key>
-				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
+				<string>export PATH="/usr/local/bin:/opt/brew/bin:$HOME/go/bin:$PATH"
 python ghq.py "{query}"</string>
 				<key>title</key>
 				<string>Open repository via ghq</string>
@@ -120,7 +120,7 @@ python ghq.py "{query}"</string>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>script</key>
-				<string>export PATH="/usr/local/bin:/opt/brew/bin:$PATH"
+				<string>export PATH="/usr/local/bin:/opt/brew/bin:$HOME/go/bin:$PATH"
 python ghq.py --get "{query}"</string>
 				<key>subtext</key>
 				<string>ghq get '...'</string>
