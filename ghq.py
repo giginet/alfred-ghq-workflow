@@ -12,7 +12,10 @@ class Client(object):
 
     def _execute_ghq(self, *args):
         args = [self.BASE_COMMAND,] + list(args)
-        return subprocess.Popen(args, stdout=subprocess.PIPE).communicate()
+        try:
+            return subprocess.Popen(args, stdout=subprocess.PIPE).communicate()
+        except:
+            return -1, ''
 
     def is_available(self):
         output, err = self._execute_ghq()
